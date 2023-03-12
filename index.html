@@ -12,6 +12,12 @@
 	<script src="p5.js"></script>
 </head>
 <body>
-	
+	<button id="reset" onclick="reset()">Reset High Score</button>
 </body>
+
+<script>
+	function reset() {  
+		localStorage.setItem("highScore", 0);
+	}
+</script>
 </html>
