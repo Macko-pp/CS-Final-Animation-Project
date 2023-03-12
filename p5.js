@@ -30,20 +30,15 @@ let bH = 50;
 let shot = false;
 let x21;
 let x22;
-let c = 255;
-let c2 = 255;
 
 let score = 0;
 
 function draw() {
 	background(backgroundImg)
+	fill(255)
 
-	fill(c) 
 	image(asteroid, aX, aY, aW, aH);
-	fill(255)
-	fill(c2) 
 	image(asteroid, bX, bY, bW, bH);
-	fill(255)
 
 	textSize(20)
 	text(score, 5, 20)
