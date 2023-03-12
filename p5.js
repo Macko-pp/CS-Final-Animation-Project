@@ -33,6 +33,8 @@ let x22;
 let c = 255;
 let c2 = 255;
 
+let score = 0;
+
 function draw() {
 	background(backgroundImg)
 
@@ -43,9 +45,14 @@ function draw() {
 	image(asteroid, bX, bY, bW, bH);
 	fill(255)
 
+	textSize(20)
+	text(score, 5, 20)
+	
 	if (aY <= i && i <= (aY + aH) && x21 >= aX && x21 <= (aX + aW)) {
 		aX = random(0, 250);
 		aY = random(0, 250);
+		
+		score++
 	} else {
 		aX += 1.5;
 		aY += 1.5;
@@ -54,15 +61,29 @@ function draw() {
 	if (bY <= i && i <= (bY + bH) && x22 >= bX && x22 <= (bX + bW)) {
 		bX = random(250, 500);
 		bY = random(0, 250);
+		
+		score++
 	} else {
 		bX -= 1.5;
 		bY += 1.5;
 	}
-
+	
 	if (aY >= 500 && bY >= 500) {
-		fill(255, 0, 0);
+		// fill(255, 0, 0);
+		textSize(20)
+		text(`Highscore: ${localStorage.getItem('highScore')}`, 205, 200)
 		textSize(50)
 		text("YOU LOOSE!", 100, 250)
+		textSize(20)
+		text(`Score: ${score}`, 220, 273)
+		textSize(10)
+		text(`(refresh to retry)`, 222, 290)
+
+		if (score > localStorage.getItem("highScore")) {
+			localStorage.setItem("highScore", score)
+		} else {
+
+		}
 	}
 	
 	image(ship, x, 400, 50, 60);
