@@ -68,7 +68,7 @@ function draw() {
 		textSize(20)
 		text(`Highscore: ${localStorage.getItem('highScore')}`, 205, 200)
 		textSize(50)
-		text("YOU LOOSE!", 100, 250)
+		text("YOU LOSE!", 120, 250)
 		textSize(20)
 		text(`Score: ${score}`, 220, 273)
 		textSize(10)
